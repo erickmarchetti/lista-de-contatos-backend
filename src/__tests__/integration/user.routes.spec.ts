@@ -69,7 +69,7 @@ describe("Tests Users routes", () => {
 
   test("GET /api/users/:id/ - it should be possible to search for a user", async () => {
     const response_404 = await request(app)
-      .get(`/api/users/teste/`)
+      .get(`/api/users/9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d/`)
       .set("Authorization", `Bearer ${loginResponseUser1.token}`)
 
     expect(response_404.status).toBe(404)
@@ -128,7 +128,7 @@ describe("Tests Users routes", () => {
     expect(response_400_1.status).toBe(400)
 
     const response_404 = await request(app)
-      .patch(`/api/users/teste/`)
+      .patch(`/api/users/9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d/`)
       .set("Authorization", `Bearer ${loginResponseUser1.token}`)
       .send(new_data)
 
@@ -173,7 +173,7 @@ describe("Tests Users routes", () => {
 
   test("DELETE /api/users/:id/ - it should be possible to delete a user", async () => {
     const response_404 = await request(app)
-      .delete(`/api/users/teste/`)
+      .delete(`/api/users/9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d/`)
       .set("Authorization", `Bearer ${loginResponseUser1.token}`)
 
     expect(response_404.status).toBe(404)
