@@ -2,9 +2,6 @@ import * as yup from "yup"
 import { SchemaOf } from "yup"
 import { UserCreateRequest } from "../interfaces"
 
-// const userRepository = AppDataSource.getRepository(User)
-// const existingNames = await userRepository.find()
-
 export const createUserSchema: SchemaOf<UserCreateRequest> = yup
   .object()
   .shape({
