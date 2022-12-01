@@ -7,7 +7,7 @@ import {
 } from "typeorm"
 import { Contact } from "./contacts.entities"
 import { UserEmail } from "./user_emails.entities"
-import { UserNumber } from "./user_numbers.entities copy"
+import { UserNumber } from "./user_numbers.entities"
 
 @Entity("users")
 export class User {

@@ -9,6 +9,6 @@ export class UserNumber {
   @Column({ type: "varchar", length: 13 })
   number: string
 
-  @ManyToOne(() => User, (user) => user.numbers)
+  @ManyToOne(() => User, (user) => user.numbers, { onDelete: "CASCADE" })
   user: User
 }

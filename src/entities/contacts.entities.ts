@@ -17,7 +17,7 @@ export class Contact {
   @Column({ type: "varchar", length: 50 })
   full_name: string
 
-  @ManyToOne(() => User, (user) => user.contacts)
+  @ManyToOne(() => User, (user) => user.contacts, { onDelete: "CASCADE" })
   user: User
 
   @OneToMany(() => ContactEmail, (contactEmail) => contactEmail.contact)

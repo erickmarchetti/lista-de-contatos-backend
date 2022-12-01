@@ -9,6 +9,6 @@ export class UserEmail {
   @Column({ type: "varchar", length: 40 })
   email: string
 
-  @ManyToOne(() => User, (user) => user.emails)
+  @ManyToOne(() => User, (user) => user.emails, { onDelete: "CASCADE" })
   user: User
 }
