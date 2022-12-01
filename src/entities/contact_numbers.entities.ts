@@ -1,10 +1,11 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm"
 import { Contact } from "./contacts.entities"
+import { v4 as uuid } from "uuid"
 
 @Entity("contact_numbers")
 export class ContactNumber {
-  @PrimaryGeneratedColumn()
-  readonly id: number
+  @PrimaryColumn()
+  readonly id: string = uuid()
 
   @Column({ type: "varchar", length: 13 })
   number: string
