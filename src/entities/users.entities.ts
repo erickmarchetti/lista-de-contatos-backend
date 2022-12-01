@@ -5,6 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn
 } from "typeorm"
+import { Exclude } from "class-transformer"
 import { Contact } from "./contacts.entities"
 import { UserEmail } from "./user_emails.entities"
 import { UserNumber } from "./user_numbers.entities"
@@ -17,6 +18,7 @@ export class User {
   @Column({ type: "varchar", length: 50, unique: true })
   full_name: string
 
+  @Exclude()
   @Column({ type: "varchar" })
   password: string
 
