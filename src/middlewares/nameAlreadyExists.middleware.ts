@@ -3,7 +3,7 @@ import AppDataSource from "../data-source"
 import { User } from "../entities/users.entities"
 import { AppError } from "../errors/appErrors"
 
-export const nameAlreadyExistsMiddleware = async (
+const nameAlreadyExistsMiddleware = async (
   request: Request,
   response: Response,
   next: NextFunction
@@ -20,3 +20,5 @@ export const nameAlreadyExistsMiddleware = async (
 
   return next()
 }
+
+export default nameAlreadyExistsMiddleware

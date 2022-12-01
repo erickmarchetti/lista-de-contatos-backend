@@ -17,16 +17,18 @@ const createUserService = async ({
 
   const hashedPassword = hashSync(password, 10)
 
-  const newUser = await userRepository.save({
+  const newUser = userRepository.create({
     full_name,
     password: hashedPassword
   })
 
+  await userRepository.save(newUser)
+
   await emailRepository.insert(
-    emails.map((email) => ({ email, user: newUser }))
+    emails.map((email) => emailRepository.create({ email, user: newUser }))
   )
   await numberRepository.insert(
-    numbers.map((number) => ({ number, user: newUser }))
+    numbers.map((number) => numberRepository.create({ number, user: newUser }))
   )
 
   return await userRepository

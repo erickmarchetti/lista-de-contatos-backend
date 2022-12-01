@@ -18,7 +18,7 @@ const verifyTokenMiddleware = async (
 
   verify(token, process.env.SECRET_KEY as string, (error, decoded) => {
     if (error) {
-      throw new AppError(400, "Invalid Token")
+      throw new AppError(400, "Invalid token")
     }
 
     typeof decoded !== "string" && (req.userId = decoded?.userId)
