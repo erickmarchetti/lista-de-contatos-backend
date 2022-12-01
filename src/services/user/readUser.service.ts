@@ -1,7 +1,7 @@
 import AppDataSource from "../../data-source"
 import { User } from "../../entities/users.entities"
 
-const readUserService = async (userId: number) => {
+const readUserService = async (userId: string) => {
   const userRepository = AppDataSource.getRepository(User)
 
   return await userRepository

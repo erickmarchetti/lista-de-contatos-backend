@@ -2,7 +2,8 @@ import { Router } from "express"
 
 import createUserController from "../controllers/user/createUser.controller"
 import readUserController from "../controllers/user/readUser.controller"
-import { nameAlreadyExistsMiddleware } from "../middlewares/nameAlreadyExists.middleware"
+import checkUserValidityMiddleware from "../middlewares/checkUserValidity.middleware"
+import nameAlreadyExistsMiddleware from "../middlewares/nameAlreadyExists.middleware"
 import verifyTokenMiddleware from "../middlewares/verifyToken.middleware"
 
 import yupValidateMiddleware from "../middlewares/yupValidate.middleware"
@@ -16,6 +17,11 @@ userRouter.post(
   nameAlreadyExistsMiddleware,
   createUserController
 )
-userRouter.get("", verifyTokenMiddleware, readUserController)
+userRouter.get(
+  "/:id/",
+  verifyTokenMiddleware,
+  checkUserValidityMiddleware,
+  readUserController
+)
 
 export default userRouter
