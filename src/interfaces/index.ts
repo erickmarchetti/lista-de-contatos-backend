@@ -6,6 +6,7 @@ export interface UserCreateRequest {
 }
 
 export interface UserUpdateRequest {
+  userId: string
   full_name?: string
   password?: string
   numbers?: string[]
