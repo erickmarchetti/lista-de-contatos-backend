@@ -45,7 +45,15 @@ describe("Tests Users routes", () => {
   })
 
   test("POST /api/contacts/ - it should be possible to create a contact", async () => {
-    const response_400 = await request(app)
+    const response_400_1 = await request(app)
+      .post(`/api/contacts/`)
+      .set("Authorization", `Bearer teste`)
+      .send(mockedContact1)
+
+    expect(response_400_1.status).toBe(400)
+    expect(response_400_1.body.message).toEqual("Invalid token")
+
+    const response_400_2 = await request(app)
       .post("/api/contacts/")
       .set("Authorization", `Bearer ${loginResponseUser1.token}`)
       .send({
@@ -54,7 +62,7 @@ describe("Tests Users routes", () => {
         emails: ""
       })
 
-    expect(response_400.status).toBe(400)
+    expect(response_400_2.status).toBe(400)
 
     const response_201 = await request(app)
       .post("/api/contacts/")
