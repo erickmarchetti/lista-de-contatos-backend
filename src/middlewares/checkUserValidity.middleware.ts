@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 import { AppError } from "../errors/appErrors"
 import { validate } from "uuid"
-import "dotenv/config"
 import AppDataSource from "../data-source"
 import { User } from "../entities/users.entities"
 

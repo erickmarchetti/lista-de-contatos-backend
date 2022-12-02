@@ -4,7 +4,7 @@ import loginRouter from "./login.routes"
 import userRouter from "./user.routes"
 
 export const appRoutes = (app: Express) => {
-  app.use("/api/users/", userRouter)
-  app.use("/api/login/", loginRouter)
-  app.use("/api/contacts/", contactRouter)
+  app.use("/api/users", userRouter)
+  app.use("/api/login", loginRouter)
+  app.use("/api/contacts", contactRouter)
 }

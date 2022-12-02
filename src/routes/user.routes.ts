@@ -21,20 +21,20 @@ userRouter.post(
   createUserController
 )
 userRouter.get(
-  "/:id/",
+  "/:id",
   verifyTokenMiddleware,
   checkUserValidityMiddleware,
   readUserController
 )
 userRouter.patch(
-  "/:id/",
+  "/:id",
   verifyTokenMiddleware,
   yupValidateMiddleware(updateUserSchema),
   checkUserValidityMiddleware,
   updateUserController
 )
 userRouter.delete(
-  "/:id/",
+  "/:id",
   verifyTokenMiddleware,
   checkUserValidityMiddleware,
   deleteUserController
