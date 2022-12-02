@@ -126,7 +126,7 @@ describe("Tests Users routes", () => {
     expect(response_400_1.status).toBe(400)
 
     const response_404 = await request(app)
-      .patch(`/api/contacts/teste/`)
+      .patch(`/api/contacts/9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d/`)
       .set("Authorization", `Bearer ${loginResponseUser1.token}`)
       .send(new_data)
 
@@ -170,7 +170,7 @@ describe("Tests Users routes", () => {
 
   test("DELETE /api/contacts/:id/ - it should be possible to delete a contact", async () => {
     const response_404 = await request(app)
-      .delete(`/api/contacts/teste/`)
+      .delete(`/api/contacts/9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d/`)
       .set("Authorization", `Bearer ${loginResponseUser1.token}`)
 
     expect(response_404.status).toBe(404)
