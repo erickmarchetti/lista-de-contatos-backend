@@ -6,7 +6,7 @@ const listContactsService = async (userId: string) => {
 
   const user = await userRepository.findOne({
     where: { id: userId },
-    relations: { contacts: true }
+    relations: { contacts: { user: true, emails: true, numbers: true } }
   })
 
   return user!.contacts
