@@ -24,6 +24,7 @@ export interface LoginResponse {
 }
 
 export interface ContactCreateRequest {
+  userId: string
   full_name: string
   numbers: string[]
   emails: string[]
