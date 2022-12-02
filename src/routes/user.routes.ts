@@ -1,6 +1,7 @@
 import { Router } from "express"
 
 import createUserController from "../controllers/user/createUser.controller"
+import deleteUserController from "../controllers/user/deleteUser.controller"
 import readUserController from "../controllers/user/readUser.controller"
 import checkUserValidityMiddleware from "../middlewares/checkUserValidity.middleware"
 import nameAlreadyExistsMiddleware from "../middlewares/nameAlreadyExists.middleware"
@@ -22,6 +23,12 @@ userRouter.get(
   verifyTokenMiddleware,
   checkUserValidityMiddleware,
   readUserController
+)
+userRouter.delete(
+  "/:id/",
+  verifyTokenMiddleware,
+  checkUserValidityMiddleware,
+  deleteUserController
 )
 
 export default userRouter
