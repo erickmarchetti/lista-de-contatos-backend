@@ -28,7 +28,7 @@ export const mockedLoginUser2: LoginRequest = {
   password: "1234"
 }
 
-export const mockedContact1: ContactCreateRequest = {
+export const mockedContact1 = {
   full_name: "Mocked Contact Erick 1",
   emails: ["erick@gmail.com", "teste@gmail.com"],
   numbers: ["555555555", "1111111111111"]
