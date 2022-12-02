@@ -1,8 +1,4 @@
-import {
-  UserCreateRequest,
-  LoginRequest,
-  ContactCreateRequest
-} from "../../interfaces"
+import { UserCreateRequest, LoginRequest } from "../../interfaces"
 
 export const mockedUser1: UserCreateRequest = {
   full_name: "Mocked Erick 1",

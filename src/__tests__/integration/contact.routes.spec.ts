@@ -108,7 +108,7 @@ describe("Tests Users routes", () => {
   })
 
   test("PATCH /api/contacts/:id/ - user must be able to update contact data", async () => {
-    const new_data: ContactUpdateRequest = {
+    const new_data = {
       full_name: "teste contact update",
       emails: ["teste_contact_update@gmail.com"],
       numbers: ["666666666"]

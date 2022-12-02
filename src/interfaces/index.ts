@@ -31,6 +31,7 @@ export interface ContactCreateRequest {
 }
 
 export interface ContactUpdateRequest {
+  contactId: string
   full_name?: string
   numbers?: string[]
   emails?: string[]
