@@ -1,3 +1,4 @@
+import { instanceToPlain } from "class-transformer"
 import { Request, Response } from "express"
 import createContactService from "../../services/contact/createContact.service"
 
@@ -6,7 +7,7 @@ const createContactController = async (req: Request, res: Response) => {
     ...req.body,
     userId: req.userId
   })
-  return res.status(201).json(newContact)
+  return res.status(201).json(instanceToPlain(newContact))
 }
 
 export default createContactController
