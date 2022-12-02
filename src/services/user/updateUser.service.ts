@@ -1,6 +1,6 @@
 import AppDataSource from "../../data-source"
 import { User } from "../../entities/users.entities"
-import { UserCreateRequest, UserUpdateRequest } from "../../interfaces"
+import { UserUpdateRequest } from "../../interfaces"
 import { hashSync } from "bcryptjs"
 import { UserEmail } from "../../entities/user_emails.entities"
 import { UserNumber } from "../../entities/user_numbers.entities"
@@ -50,12 +50,10 @@ const updateUserService = async ({
     })
   }
 
-  return await userRepository
-    .find({
-      where: { id: userId },
-      relations: { emails: true, numbers: true }
-    })
-    .then((res) => res[0])
+  return await userRepository.findOne({
+    where: { id: userId },
+    relations: { emails: true, numbers: true }
+  })
 }
 
 export default updateUserService

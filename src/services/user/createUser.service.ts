@@ -24,19 +24,17 @@ const createUserService = async ({
 
   await userRepository.save(newUser)
 
-  await emailRepository.insert(
+  await emailRepository.save(
     emails.map((email) => emailRepository.create({ email, user: newUser }))
   )
-  await numberRepository.insert(
+  await numberRepository.save(
     numbers.map((number) => numberRepository.create({ number, user: newUser }))
   )
 
-  return await userRepository
-    .find({
-      where: { id: newUser.id },
-      relations: { emails: true, numbers: true }
-    })
-    .then((res) => res[0])
+  return await userRepository.findOne({
+    where: { id: newUser.id },
+    relations: { emails: true, numbers: true }
+  })
 }
 
 export default createUserService
