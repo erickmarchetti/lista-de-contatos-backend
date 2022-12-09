@@ -7,6 +7,15 @@ export const createContactSchema: SchemaOf<ContactCreateRequest> = yup
   .shape({
     full_name: yup.string().max(50).required(),
     emails: yup.array().of(yup.string().max(40).email()).required(),
-    numbers: yup.array().of(yup.string().min(9).max(13)).required()
+    numbers: yup
+      .array()
+      .of(
+        yup
+          .string()
+          .min(9)
+          .max(13)
+          .matches(/^[0-9]+$/, "This field must have only numbers")
+      )
+      .required()
   })
   .required()

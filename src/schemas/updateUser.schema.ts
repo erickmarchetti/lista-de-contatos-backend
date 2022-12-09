@@ -8,6 +8,12 @@ export const updateUserSchema: SchemaOf<UserUpdateRequest> = yup
     full_name: yup.string().max(50),
     password: yup.string(),
     emails: yup.array().of(yup.string().max(40).email()),
-    numbers: yup.array().of(yup.string().min(9).max(13))
+    numbers: yup.array().of(
+      yup
+        .string()
+        .min(9)
+        .max(13)
+        .matches(/^[0-9]+$/, "This field must have only numbers")
+    )
   })
   .required()
