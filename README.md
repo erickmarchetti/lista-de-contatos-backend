@@ -340,4 +340,4 @@ No content
 
 ## 4. Frontend
 
-Para ter acessa ao front end do projeto clique [aqui](https://github.com/erickmarchetti/lista-de-contatos-frontend)
+Para ter acessa ao front end do projeto clique <a href="https://github.com/erickmarchetti/lista-de-contatos-frontend" target="_blank">aqui</a>
